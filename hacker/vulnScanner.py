@@ -10,16 +10,17 @@ screenLock = Semaphore(value=1)
 def connScan(tgtHost, tgtPort):
     global connSkt
     try:
-        connSkt = socket(AF_INET, SOCK_STREAM)
-        connSkt.connect((tgtHost, tgtPort))
-        connSkt.send('ViolentPython\r\n')
-        results = connSkt.recv(100)
+        connSkt = socket(AF_INET, SOCK_STREAM)#IPv4协议，TCP链接（面向链接的可靠字节流），创建一个链接对象
+        connSkt.connect((tgtHost, tgtPort))#链接到主机，连接到tgtHost的远程套接字
+        connSkt.send('ViolentPython\r\n')#将数据发送到套接字
+        results = connSkt.recv(100)#接受套接字的数据，数据以字符串的形式返回，100位最大的数据量
         screenLock.acquire()
-        print('[+] %d/tcp open'.format(tgtPort))
+
+        print('[+] %d/tcp open'%tgtPort)
         print ('[+] ' + str(results))
     except:
         screenLock.acquire()
-        print ('[-] %d/tcp closed'.format(tgtPort))
+        print ('[-] %d/tcp closed'%tgtPort)
     finally:
         screenLock.release()
         connSkt.close()
@@ -28,14 +29,14 @@ def connScan(tgtHost, tgtPort):
 
 def portScan(tgtHost, tgtPorts):
     try:
-        tgtIP = gethostbyname(tgtHost)
+        tgtIP = gethostbyname(tgtHost)#获取主机的名称
     except:
         print("[-] Cannot resolve '%s': Unknown host".format(tgtHost))
         return
 
     try:
         tgtName = gethostbyaddr(tgtIP)
-        print ('\n[+] Scan Results for: ' + tgtName[0])
+        print ('\n[+] Scan Results for:%d,%d,%d '.format(tgtName[0],tgtName[1],tgtName[2]))
     except:
         print ('\n[+] Scan Results for: ' + tgtIP)
 
