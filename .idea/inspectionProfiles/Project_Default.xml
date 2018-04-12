@@ -1,0 +1,27 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="pillow" />
+          <option value="object.*" />
+          <option value="bool.sum" />
+          <option value="type.*" />
+          <option value="type.iloc" />
+          <option value="ML.src.myIO.myInit" />
+          <option value="ML.src.main.*" />
+          <option value="dict.*" />
+          <option value="list.read" />
+          <option value="AB.B.*" />
+          <option value="AB.AB.*" />
+          <option value="Test2.Test2.spiders.XML1.*" />
+          <option value="items" />
+          <option value="turtle.*" />
+          <option value="TurtleSpiro.JiCheng.DepositCharge.withdraw" />
+          <option value="TurtleSpiro.JiCheng.DepositCharge.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
