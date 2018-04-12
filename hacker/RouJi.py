@@ -43,3 +43,7 @@ botNet = []
 addClient('127.0.0.1', 'root', 'toor')
 addClient('127.0.0.1', 'root', 'toor')
 addClient('127.0.0.1', 'root', 'toor')
+
+
+botnetCommand('uname -v')
+botnetCommand('cat /etc/issue')
